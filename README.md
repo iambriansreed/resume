@@ -1,6 +1,6 @@
 # Resume Starter
 
-This is a resume starter app that build a static print ready resume in your browser.
+This is a resume starter app that builds a static print ready resume in your browser.
 
 It uses Babel, Express, React, Sass, and nodemon local development.
 
