@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import { usePage } from './page';
 import data from '../data';

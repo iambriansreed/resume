@@ -3,23 +3,24 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "build": "rm -rf dist && mkdir dist && cp -r public/. dist && npx babel-node src/build.js",
-        "dev": "npm run build && nodemon --watch src -e * --exec 'npx babel-node src/dev.js'",
+        "build": "rm -rf dist && mkdir dist && cp -r public/. dist && npx tsx src/build.ts",
+        "dev": "npm run build && npx tsx src/dev.ts",
         "deploy": "npm run build && gh-pages -d dist"
     },
     "author": "",
     "license": "ISC",
     "description": "",
-    "dependencies": {
-        "@babel/core": "^7.24.8",
-        "@babel/node": "^7.24.8",
-        "@babel/preset-env": "^7.24.8",
-        "@babel/preset-react": "^7.24.7",
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/react": "^19.2.13",
+        "@types/react-dom": "^19.2.3",
         "express": "^4.19.2",
         "gh-pages": "^6.1.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
+        "nodemon": "^3.1.4",
+        "open": "^11.0.0",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
         "sass": "^1.77.8",
-        "nodemon": "^3.1.4"
+        "typescript": "^5.9.3"
     }
 }

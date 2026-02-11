@@ -2,18 +2,15 @@ import React from 'react';
 import data from '../data';
 import { usePage } from './page';
 
-/**
- * @param {object}  props
- * @param {boolean|undefined}  props.volunteer
- * @param {boolean|undefined}  props.continued
- */
-export default function Experience({ volunteer, continued }) {
-    const items = data.experience.sort((a, b) => (a.startedOn > b.startedOn ? -1 : 1));
+type ExperienceProps = {
+    volunteer?: boolean;
+    continued?: boolean;
+};
 
-    /**
-     * @param {number}  dateTime
-     */
-    const formatDate = (dateTime) => {
+export default function Experience({ volunteer, continued }: ExperienceProps) {
+    const items = [...data.experience].sort((a, b) => (a.startedOn > b.startedOn ? -1 : 1));
+
+    const formatDate = (dateTime: number) => {
         const date = new Date(dateTime);
 
         return date.toLocaleDateString('en-US', {
@@ -23,6 +20,8 @@ export default function Experience({ volunteer, continued }) {
     };
 
     const page = usePage();
+
+    console.log({ page });
 
     return (
         <section className="experience">
@@ -37,13 +36,9 @@ export default function Experience({ volunteer, continued }) {
             </h2>
             {items
                 .filter((item) => {
-                    if (!item.volunteer !== !volunteer) {
-                        return false;
-                    }
-                    if (item.page && item.page !== page) {
-                        return false;
-                    }
-                    return true;
+                    if (volunteer) return item.volunteer;
+
+                    return item.page === page;
                 })
                 .map((item, index) => (
                     <aside key={index}>

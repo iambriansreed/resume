@@ -1,21 +1,25 @@
-//@ts-check
 import fs from 'fs';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import sass from 'sass';
 import data from './data';
+import App from './app';
 
-const dir = 'dist';
+const DIR = 'dist';
 
-const html = () => require('react-dom/server').renderToString(require('./app').default());
-const css = require('sass')
+const html = () => renderToString(React.createElement(App));
+
+const css = sass
     .compile('src/style.scss', {
         style: 'compressed',
     })
     .css.toString();
 
 fs.writeFileSync(
-    dir + '/index.html',
+    DIR + '/index.html',
     fs
         .readFileSync('src/index.html', 'utf8')
         .replace('/* title */', data.title)
         .replace('<!-- app -->', html())
-        .replace('/* style */', css)
+        .replace('/* style */', css),
 );

@@ -1,17 +1,7 @@
-@font-face {
-    font-family: 'base';
-    src: url('/fonts/Metropolis-Regular.woff2');
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'base';
-    src: url('/fonts/Metropolis-SemiBold.woff2');
-    font-weight: 600;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-    font-family: 'base', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
     line-height: 1.2;
     font-size: 10pt;
@@ -61,6 +51,7 @@ h4,
 h5,
 h6 {
     color: var(--accent-color);
+    margin: 0;
 }
 
 #root {
@@ -85,7 +76,7 @@ h6 {
 
     // 2
     > header {
-        height: 1.75in;
+        height: 2in;
         // 0.25
         padding-bottom: 0.125in;
         margin-bottom: 0.125in;
@@ -135,11 +126,11 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--accent-color);
 
     .intro {
         flex: 0 0 100%;
-        text-wrap: balance;
+        font-style: italic;
+        margin-top: 1rem;
     }
 
     svg {
@@ -157,7 +148,7 @@ header {
         font-weight: 600;
         font-size: 5rem;
         line-height: 1;
-        letter-spacing: -0.05em;
+        letter-spacing: -0.025em;
         transform: skewX(1deg) skewY(6rem);
     }
 
@@ -184,7 +175,7 @@ header {
 
 main {
     @extend .flex-row;
-    gap: 3rem;
+    gap: 2rem;
     row-gap: 1.5rem;
 
     &[data-col] {
@@ -194,7 +185,7 @@ main {
 
 .skills-certifications {
     @extend .flex-col;
-    width: 2in;
+    width: 1.7in;
     gap: 1rem;
     flex-shrink: 0;
 
@@ -204,7 +195,7 @@ main {
     }
 
     * + h2 {
-        margin-top: 2rem;
+        margin-top: 1.2React Native5rem;
     }
 
     li {
@@ -248,7 +239,7 @@ main {
 
 .experience {
     @extend .flex-col;
-    gap: 1rem;
+    gap: 1.5rem;
 
     aside {
         @extend .flex-col;
